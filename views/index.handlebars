@@ -1,0 +1,44 @@
+ <div class="container">
+  <div class="row">
+    <div class="col-md-12 text-center">
+      <div class="jumbotron">
+        <h1 class="font-effect-neon">Red Cow Menu</h1>
+        <img src="assets/img/burger.png" class="burger" alt="burger"/>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <!--Burgers To Eat-->
+    <div class="col-md-6">
+      <h2 class="text-center">Burgers to Eat</h2>
+      <ul>
+        {{#each burgers}}
+          {{#unless this.devoured}}
+              <li class="devour"><p>{{this.id}}. {{this.burger_name}}<button class="change-devoured-state float-right btn btn-warning inline-button" data-id="{{id}}">Devour</button></p></li>
+          {{/unless}}
+        {{/each}}
+      </ul>
+    </div>
+    <!--Trash It-->
+    <div class="col-md-6">
+      <h2 class="text-center">Burgers Devoured</h2>
+      <ul>
+        {{#each burgers}}
+          {{#if this.devoured}}
+            <li class="devoured"><p>{{this.id}}. {{this.burger_name}}<button class="delete-burger float-right btn btn-danger inline-button" data-id="{{id}}">Digest</button></p></li>
+          {{/if}}
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+  <div class="row">
+      <!--Add A Burger-->
+    <div class="col-md-12 text-center">
+      <form class="create-form">
+        <div class="form-group">
+          <input type="text" id="burgerInput" name="name" placeholder="[ Enter Burger Name Here ]"><button type="submit" class="btn btn-success submit">ADD A BURGER</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
